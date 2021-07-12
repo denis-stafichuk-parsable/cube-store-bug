@@ -1,0 +1,19 @@
+version: '2.2'
+
+services:
+  cube:
+    image: cubejs/cube:v0.27.49
+    ports:
+      - 4000:4000  # Cube.js API and Developer Playground
+    environment:
+      - CUBEJS_DEV_MODE=true
+    volumes:
+      - .:/cube/conf
+  postgres:
+    image: postgres:9.6.20
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
