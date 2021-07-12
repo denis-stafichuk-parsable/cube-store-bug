@@ -34,7 +34,7 @@ cube(`JobFunnel`, {
       dimensionReferences: [JobFunnel.step, Jobs.teamId],
       timeDimensionReference: JobFunnel.time,
       granularity: `day`,
-      external: true,
+      external: false,
     }
   }
 });
